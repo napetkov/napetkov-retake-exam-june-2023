@@ -37,6 +37,8 @@ jobs:
     - name: Install NPM Dependancies
       run: npm install
     - name: Instal NPX Playwright browsers
-      run: npx playwright install  
+      run: npx playwright install
+    - name: Run Application in backgound moude
+      run: npm start &  
     - name: Run UI tests
       run: npm run test:ui
