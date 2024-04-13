@@ -7,8 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  build-unit-tests:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repository
@@ -24,3 +23,20 @@ jobs:
       run: npm run test:unit
     - name: Display my Softuni username
       run: echo "napetkov"
+  
+  run-ui-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    - name: Use Node.js 20.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+        cache: 'npm'
+    - name: Install NPM Dependancies
+      run: npm install
+    - name: Instal NPX Playwright browsers
+      run: npx playwright install  
+    - name: Run UI tests
+      run: npm run test:ui
