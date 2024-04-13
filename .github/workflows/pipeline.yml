@@ -25,6 +25,7 @@ jobs:
       run: echo "napetkov"
   
   run-ui-tests:
+    needs: build-unit-tests
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repository
